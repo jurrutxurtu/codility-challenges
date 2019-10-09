@@ -29,7 +29,7 @@ fun solution(N: Int): Int {
         when (elem) {
             '0' -> currentGap++
             '1' -> {
-                if(currentGap > longestGap) longestGap = currentGap
+                if (currentGap > longestGap) longestGap = currentGap
                 currentGap = 0
             }
         }
