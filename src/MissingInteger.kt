@@ -8,7 +8,6 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000].*/
 
-
 fun main() {
 
     println("Input: 1, 2 -> Result: " + solution(intArrayOf(1, 2)))
@@ -17,17 +16,11 @@ fun main() {
 }
 
 fun solution(A: IntArray): Int {
-
     var solution = 1
     var map: MutableMap<Int, Boolean> = mutableMapOf<Int, Boolean>()
     A.forEach { elem ->
-        if (elem > solution) {
-
-            map.put(elem, true)
-
-        } else if (elem == solution) {
-
-            map.put(elem, true)
+        map.put(elem, true)
+        if (elem == solution) {
             while (map.containsKey(solution)) {
                 solution++
             }

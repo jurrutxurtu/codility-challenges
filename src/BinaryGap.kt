@@ -25,11 +25,10 @@ fun solution(N: Int): Int {
     var longestGap = 0
     var currentGap = 0
     array.forEach { elem ->
-
         when (elem) {
             '0' -> currentGap++
             '1' -> {
-                if (currentGap > longestGap) longestGap = currentGap
+                longestGap = if(currentGap > longestGap) currentGap else longestGap
                 currentGap = 0
             }
         }
