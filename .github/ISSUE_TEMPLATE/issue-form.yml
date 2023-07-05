@@ -1,0 +1,55 @@
+name: "⚠️ Incident in PROD"
+description: Deficiencies / problems in Production environment due to functionality not behaving as anticipated.
+title: "⚠️ [BUG] - <title here>"
+assignees: jurrutxurtusainz-external  
+labels: ["bug", "SC3- Corrective"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: Please enter an explicit description of your issue
+      placeholder: Explicit description of your incident...
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: "Component"
+      description: Select the components/apis affected by the incident/bug
+      multiple: true
+      options:
+        - kime-api
+        - kime-lss
+        - kime-prepub
+        - kime-citations
+        - kime-doss
+        - kime-npl
+        - kime-annotations
+        - KILO
+    validations:
+      required: true  
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Screenshots"
+      description: If applicable, add screenshots to help explain your problem.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs"
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: bash
+    validations:
+      required: false
+  
+  - type: hidden
+    id: labels
+    attributes:
+      value: |
+        <% component.map(function(component) { return '"' + component + '"'; }).join(', ') %>
