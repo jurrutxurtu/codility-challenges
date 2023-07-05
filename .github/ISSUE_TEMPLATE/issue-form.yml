@@ -47,9 +47,3 @@ body:
       render: bash
     validations:
       required: false
-  
-  - type: hidden
-    id: labels
-    attributes:
-      value: |
-        <% component.map(function(component) { return '"' + component + '"'; }).join(', ') %>
